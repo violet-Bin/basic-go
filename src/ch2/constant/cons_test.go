@@ -22,3 +22,14 @@ func TestConst(t *testing.T) {
 	a := 7
 	t.Log(a&Readable == Readable, a&Writable == Writable, a&Executable == Executable)
 }
+
+//按位清0
+// 1 &^ 1 会清0
+// 1 &^ 0 保留
+func TestClearBit(t *testing.T) {
+	a := 7 //0111
+	t.Log(a &^ 2)
+	a = a &^ Readable
+	a = a &^ Executable
+	t.Log(a&Readable == Readable, a&Writable == Writable, a&Executable == Executable)
+}
